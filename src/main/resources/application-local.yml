@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/cm
+    username: postgres
+    password: root
+
+  flyway:
+    user: postgres
+    password: root
+    default-schema: management
+    driver-class-name: org.postgresql.Driver
+    schemas: system, management
+
+client-application:
+  url: localhost
+  port: 8080

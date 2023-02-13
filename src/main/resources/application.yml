@@ -1,0 +1,19 @@
+token:
+  activation:
+    time-to-live: 5
+  jwt:
+    secret: jWtSecreTk_e_y
+    expiration: 30
+
+mail:
+  smtp:
+    host: localhost
+  send:
+    to: test@email.com
+    from: test@email.com
+
+security:
+  permit-all: /login,/logout,/api/user/account/register,/api/user/account/activate/*, /api/user/account/password/reset/*
+server:
+  port: 8080
+
