@@ -15,3 +15,9 @@ spring:
 client-application:
   url: localhost
   port: 8080
+
+google:
+  cloud:
+    bucket-name: cm-bucket-homework
+    project-id: course-management
+    credentials-json-path: google_cloud_storage.json
