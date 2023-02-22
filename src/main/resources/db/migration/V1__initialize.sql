@@ -44,7 +44,7 @@ CREATE TABLE management.lesson
     created_by   BIGINT       NOT NULL,
     updated_by   VARCHAR(255),
     created_date TIMESTAMP    NOT NULL DEFAULT now(),
-    updated_date  TIMESTAMP,
+    updated_date TIMESTAMP,
     course_id    BIGINT REFERENCES management.course (id),
 
     CONSTRAINT app_user_lesson_created_by_FK FOREIGN KEY (created_by) REFERENCES management.app_user (id),
@@ -91,13 +91,13 @@ CREATE TABLE management.app_user_exam_reference
 CREATE TABLE management.exam
 (
     id           SERIAL PRIMARY KEY,
-    course_id    BIGINT    NOT NULL REFERENCES management.course (id),
+    course_id    BIGINT REFERENCES management.course (id),
     max_grade    INT,
     min_grade    INT,
     created_by   BIGINT    NOT NULL,
     updated_by   VARCHAR(255),
     created_date TIMESTAMP NOT NULL DEFAULT now(),
-    updated_date  TIMESTAMP,
+    updated_date TIMESTAMP,
 
     CONSTRAINT app_user_exam_created_by_FK FOREIGN KEY (created_by) REFERENCES management.app_user (id),
     CONSTRAINT app_user_exam_updated_by_FK FOREIGN KEY (updated_by) REFERENCES management.app_user (email)
@@ -107,14 +107,14 @@ CREATE TABLE management.exam
 CREATE TABLE management.question
 (
     id               SERIAL PRIMARY KEY,
-    exam_id          BIGINT    NOT NULL REFERENCES management.exam (id),
+    exam_id          BIGINT    REFERENCES management.exam (id),
     question_text    TEXT      NOT NULL,
     amount_of_points INT       NOT NULL,
     index            INT       NOT NULL,
     created_by       BIGINT    NOT NULL,
     updated_by       VARCHAR(255),
     created_date     TIMESTAMP NOT NULL DEFAULT now(),
-    updated_date      TIMESTAMP,
+    updated_date     TIMESTAMP,
 
     CONSTRAINT app_user_question_created_by_FK FOREIGN KEY (created_by) REFERENCES management.app_user (id),
     CONSTRAINT app_user_question_updated_by_FK FOREIGN KEY (updated_by) REFERENCES management.app_user (email)
@@ -131,7 +131,7 @@ CREATE TABLE management.answer
     created_by   BIGINT    NOT NULL,
     updated_by   VARCHAR(255),
     created_date TIMESTAMP NOT NULL DEFAULT now(),
-    updated_date  TIMESTAMP,
+    updated_date TIMESTAMP,
 
     CONSTRAINT app_user_answer_created_by_FK FOREIGN KEY (created_by) REFERENCES management.app_user (id),
     CONSTRAINT app_user_answer_updated_by_FK FOREIGN KEY (updated_by) REFERENCES management.app_user (email)
