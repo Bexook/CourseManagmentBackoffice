@@ -21,9 +21,11 @@ service:
 
 mail:
   smtp:
-    host: localhost
+    host: smtp.gmail.com
+    port: 465
+    username: bezook12@gmail.com
+    password: hasgyjkjzabkherb
   send:
-    to: test@email.com
     from: test@email.com
 
 security:

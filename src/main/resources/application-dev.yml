@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/d9dnq7gb10lngq
+    username: tvhplevuecdefd
+    password: 3049eb08178d3ca2b525e83a90e473b7adedcfc4a771f13e17537b4269db2951
+
+  flyway:
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    default-schema: management
+    driver-class-name: org.postgresql.Driver
+    schemas: system, management
+
+client-application:
+  url: localhost
+  port: 8080
+
+google:
+  cloud:
+    bucket-name: cm-bucket-homework
+    project-id: course-management
+    credentials-json-path: google_cloud_storage.json

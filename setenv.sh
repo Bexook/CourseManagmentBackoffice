@@ -1,0 +1,1 @@
+export JAVA_OPTS="$JAVA_OPTS -Dspring.profiles.active=local -Dserver.port=8080"
