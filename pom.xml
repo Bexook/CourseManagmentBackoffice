@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.cm.backoffice</groupId>
     <artifactId>course-managment-backoffice</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <java.version>11</java.version>
@@ -74,14 +74,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.cm.backoffice.CourseManagementApplicationBackoffice</mainClass>
-                    <layout>JAR</layout>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -92,16 +84,6 @@
                         <include>com.cm.common</include>
                     </includes>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
             </plugin>
         </plugins>
         <extensions>
@@ -126,5 +108,15 @@
         </repository>
     </repositories>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>artifact-registry</id>
+            <url>https://europe-central2-maven.pkg.dev/hallowed-span-378416/cm-backoffice</url>
+        </snapshotRepository>
+        <repository>
+            <id>artifact-registry</id>
+            <url>https://europe-central2-maven.pkg.dev/hallowed-span-378416/cm-backoffice</url>
+        </repository>
+    </distributionManagement>
 
 </project>
