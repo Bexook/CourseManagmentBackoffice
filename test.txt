@@ -4,6 +4,5 @@
 "BY_EMAIL": "",
 "BY_LASTNAME": "",
 "BY_FIRSTNAME": ""
-TESTsdss
 
 TestTest123!
