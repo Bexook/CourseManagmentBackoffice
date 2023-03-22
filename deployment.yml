@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cm-backoffice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cm-backoffice
+  template:
+    metadata:
+      labels:
+        app: cm-backoffice
+    spec:
+      containers:
+        - name: cm-backoffice
+          # Replace $LOCATION with your Artifact Registry location (e.g., us-west1).
+          # Replace $GCLOUD_PROJECT with your project ID.
+          image: gcr.io/hallowed-span-378416/cm-backoffice:tagVersion
+          # This app listens on port 8080 for web traffic by default.
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
