@@ -116,5 +116,15 @@
         </repository>
     </repositories>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>artifact-registry</id>
+            <url>https://europe-central2-maven.pkg.dev/hallowed-span-378416/cm-backoffice</url>
+        </snapshotRepository>
+        <repository>
+            <id>artifact-registry</id>
+            <url>https://europe-central2-maven.pkg.dev/hallowed-span-378416/cm-backoffice</url>
+        </repository>
+    </distributionManagement>
 
 </project>
