@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <properties>
         <java.version>11</java.version>
+        <cm-common-version>1.0.5-SNAPSHOT</cm-common-version>
     </properties>
     <dependencies>
         <dependency>
@@ -56,7 +57,7 @@
         <dependency>
             <groupId>com.cm.common</groupId>
             <artifactId>cm-common</artifactId>
-            <version>1.0.3-SNAPSHOT</version>
+            <version>${cm-common-version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -103,18 +104,18 @@
         </extensions>
     </build>
 
-    <repositories>
-        <repository>
-            <id>artifact-registry</id>
-            <url>https://europe-central2-maven.pkg.dev/hallowed-span-378416/cm-common</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>artifact-registry</id>-->
+<!--            <url>https://europe-central2-maven.pkg.dev/hallowed-span-378416/cm-common</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
     <distributionManagement>
         <snapshotRepository>

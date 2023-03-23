@@ -1,9 +1,18 @@
 spring:
+  cloud:
+    gcp:
+      sql:
+        database-name: cm
+        instance-connection-name: hallowed-span-378416:europe-west1:cm
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql:///cm?35.189.199.235:5432
+    url: jdbc:postgresql::///cm
     username: postgres
     password: root
+    hikari:
+      data-source-properties:
+        socketFactory: com.google.cloud.sql.mysql.SocketFactory
+        cloudSqlInstance: hallowed-span-378416:europe-west1:cm
 
   flyway:
     user: ${spring.datasource.username}
