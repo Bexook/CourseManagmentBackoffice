@@ -6,8 +6,6 @@ spring:
         instance-connection-name: hallowed-span-378416:europe-west1:cm
         ip-types: PUBLIC
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql::///cm
     username: postgres
     password: root
     hikari:
