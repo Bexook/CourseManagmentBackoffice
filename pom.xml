@@ -59,17 +59,13 @@
             <artifactId>cm-common</artifactId>
             <version>${cm-common-version}</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>test</id>
+        </profile>
+    </profiles>
 
     <build>
         <pluginManagement>
@@ -104,18 +100,18 @@
         </extensions>
     </build>
 
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>artifact-registry</id>-->
-<!--            <url>https://europe-central2-maven.pkg.dev/hallowed-span-378416/cm-common</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--    </repositories>-->
+    <repositories>
+        <repository>
+            <id>artifact-registry</id>
+            <url>https://europe-central2-maven.pkg.dev/hallowed-span-378416/cm-common</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <distributionManagement>
         <snapshotRepository>
