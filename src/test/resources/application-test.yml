@@ -36,3 +36,25 @@ server:
 client-application:
   url: localhost
   port: 8080
+
+
+spring:
+  cloud:
+    gcp:
+      sql:
+        database-name: cm
+        instance-connection-name: hallowed-span-378416:europe-west1:cm
+        ip-types: PUBLIC
+  datasource:
+    username: postgres
+    password: root
+    hikari:
+      data-source-properties:
+        socketFactory: com.google.cloud.sql.mysql.SocketFactory
+        cloudSqlInstance: hallowed-span-378416:europe-west1:cm
+
+google:
+  cloud:
+    bucket-name: cm-bucket-homework
+    project-id: course-management
+    credentials-json-path: google_cloud_storage.json
