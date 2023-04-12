@@ -1,6 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS management;
 
-CREATE TABLE management.app_user
+CREATE TABLE IF NOT EXISTS management.app_user
 (
     id               BIGINT PRIMARY KEY AUTO_INCREMENT,
     first_name       VARCHAR(255)        NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE management.app_user
 );
 
 
-CREATE TABLE management.course
+CREATE TABLE IF NOT EXISTS management.course
 (
     id               BIGINT PRIMARY KEY AUTO_INCREMENT,
     subject          VARCHAR(500) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE management.course
 );
 
 
-CREATE TABLE management.lesson
+CREATE TABLE IF NOT EXISTS management.lesson
 (
     id           BIGINT PRIMARY KEY AUTO_INCREMENT,
     subject      VARCHAR(500) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE management.lesson
 );
 
 
-CREATE TABLE management.course_user_authority
+CREATE TABLE IF NOT EXISTS management.course_user_authority
 (
 
     course_id   BIGINT NOT NULL REFERENCES management.course (id),
@@ -64,7 +64,7 @@ CREATE TABLE management.course_user_authority
 );
 
 
-CREATE TABLE management.app_user_course_reference
+CREATE TABLE IF NOT EXISTS management.app_user_course_reference
 (
     app_user_id  BIGINT NOT NULL REFERENCES management.app_user (id),
     course_id    BIGINT NOT NULL REFERENCES management.course (id),
@@ -72,7 +72,7 @@ CREATE TABLE management.app_user_course_reference
     lesson_index INT    NOT NULL
 );
 
-CREATE TABLE management.app_user_exam_reference
+CREATE TABLE IF NOT EXISTS management.app_user_exam_reference
 (
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
     app_user_id     BIGINT NOT NULL REFERENCES management.app_user (id),
@@ -86,7 +86,7 @@ CREATE TABLE management.app_user_exam_reference
 
 
 
-CREATE TABLE management.exam
+CREATE TABLE IF NOT EXISTS management.exam
 (
     id           BIGINT PRIMARY KEY AUTO_INCREMENT,
     course_id    BIGINT    NOT NULL REFERENCES management.course (id),
@@ -102,7 +102,7 @@ CREATE TABLE management.exam
 );
 
 
-CREATE TABLE management.question
+CREATE TABLE IF NOT EXISTS management.question
 (
     id               BIGINT PRIMARY KEY AUTO_INCREMENT,
     exam_id          BIGINT    NOT NULL REFERENCES management.exam (id),
@@ -120,7 +120,7 @@ CREATE TABLE management.question
 );
 
 
-CREATE TABLE management.answer
+CREATE TABLE IF NOT EXISTS management.answer
 (
     id           BIGINT PRIMARY KEY AUTO_INCREMENT,
     question_id  BIGINT REFERENCES management.question (id),
@@ -136,7 +136,7 @@ CREATE TABLE management.answer
 
 );
 
-CREATE TABLE management.media
+CREATE TABLE IF NOT EXISTS management.media
 (
     id         BIGINT PRIMARY KEY AUTO_INCREMENT,
     lesson_id  BIGINT REFERENCES management.lesson (id),
@@ -144,7 +144,7 @@ CREATE TABLE management.media
     key        VARCHAR(500)
 );
 
-CREATE TABLE management.exam_result
+CREATE TABLE IF NOT EXISTS management.exam_result
 (
     id           BIGINT PRIMARY KEY AUTO_INCREMENT,
     user_id      BIGINT REFERENCES management.app_user (id),
@@ -156,7 +156,7 @@ CREATE TABLE management.exam_result
 
 
 CREATE SCHEMA IF NOT EXISTS system;
-CREATE TABLE system.active_token
+CREATE TABLE IF NOT EXISTS system.active_token
 (
     id           BIGINT PRIMARY KEY AUTO_INCREMENT,
     token        VARCHAR(1000) NOT NULL,
@@ -167,7 +167,7 @@ CREATE TABLE system.active_token
 
 
 
-CREATE TABLE system.scheduled_job
+CREATE TABLE IF NOT EXISTS system.scheduled_job
 (
     id                      BIGINT PRIMARY KEY AUTO_INCREMENT,
     name                    VARCHAR(255) NOT NULL,
@@ -180,6 +180,9 @@ CREATE TABLE system.scheduled_job
 
 ALTER TABLE management.course
     ADD COLUMN available BOOLEAN DEFAULT false;
+
+ALTER TABLE management.course
+    ADD COLUMN amount_of_points INT;
 
 INSERT INTO management.app_user (id, first_name, last_name, email, password, role, certificate_keys, active,
                                  email_verified,
@@ -202,10 +205,10 @@ VALUES (1, 'Admin', 'TEST', 'admin@email.com', '$2a$12$ok0yBpD4F44qy5a0CTL9xewXj
 INSERT INTO management.course
 VALUES (3, 'TEST',
         'TEST', 3,
-        '2023-02-07 16:38:46.708260', null, 1, null, false),
+        '2023-02-07 16:38:46.708260', null, 1, null, false, 20),
        (2, 'TEST',
         'TEST', 3,
-        '2023-02-07 16:38:46.708260', null, 1, null, true);
+        '2023-02-07 16:38:46.708260', null, 1, null, true, 30);
 
 
 INSERT INTO management.app_user_course_reference
