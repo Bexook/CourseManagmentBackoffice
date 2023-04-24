@@ -1,5 +1,8 @@
-package com.cm.backoffice.integration.course;
+package com.cm.backoffice.integration;
 
+import com.cm.backoffice.integration.course.CourseServiceActivityAdminTest;
+import com.cm.backoffice.integration.course.CourseServiceActivityStudentTest;
+import com.cm.backoffice.integration.course.CourseServiceActivityTeacherTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.springframework.boot.test.context.SpringBootTest;
