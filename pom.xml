@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <properties>
         <java.version>11</java.version>
-        <cm-common-version>1.0.15-SNAPSHOT</cm-common-version>
+        <cm-common-version>1.0.16-SNAPSHOT</cm-common-version>
     </properties>
     <dependencies>
         <dependency>
